@@ -1,0 +1,120 @@
+{
+    "nodes": [
+        {
+            "name": "R1A1",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example2/configs/r1a1.cfg"
+        },
+        {
+            "name": "R1A200",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example2/configs/r1a200.cfg"
+        },
+        {
+            "name": "R2A1",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example2/configs/r2a1.cfg"
+        },
+        {
+            "name": "R3A1",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example2/configs/r3a1.cfg"
+        },
+        {
+            "name": "R4A1",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example2/configs/r4a1.cfg"
+        },
+        {
+            "name": "R5A1",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example2/configs/r5a1.cfg"
+        }
+    ],
+    "links": [
+        {
+            "node1": {
+                "name": "R1A1",
+                "adapter": 0,
+                "port": 0
+            },
+            "node2": {
+                "name": "R1A200",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "R1A1",
+                "adapter": 0,
+                "port": 1
+            },
+            "node2": {
+                "name": "R3A1",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "R2A1",
+                "adapter": 0,
+                "port": 0
+            },
+            "node2": {
+                "name": "R4A1",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "R3A1",
+                "adapter": 0,
+                "port": 1
+            },
+            "node2": {
+                "name": "R4A1",
+                "adapter": 0,
+                "port": 1
+            }
+        },
+        {
+            "node1": {
+                "name": "R1A1",
+                "adapter": 1,
+                "port": 0
+            },
+            "node2": {
+                "name": "R5A1",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "R3A1",
+                "adapter": 1,
+                "port": 0
+            },
+            "node2": {
+                "name": "R5A1",
+                "adapter": 0,
+                "port": 1
+            }
+        },
+        {
+            "node1": {
+                "name": "R4A1",
+                "adapter": 1,
+                "port": 0
+            },
+            "node2": {
+                "name": "R5A1",
+                "adapter": 1,
+                "port": 0
+            }
+        }
+    ]
+}

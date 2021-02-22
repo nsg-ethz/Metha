@@ -1,0 +1,35 @@
+Processing /run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/minimized-tests/test192/nv-gen_control.nv
+Interpreted simulation took: 0.003031 secs to complete
+No counterexamples found
+
+Printing solutions for sol~0
+Node 0
+---------
+{ (2208169720u32,29u6) |-> {  bgp= None; connected= None; ospf= Some({  areaId= 1u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= Some(0~1); ospfOrigin= 1n; weight= 1u16; }); selected= Some(2u2); static= None; }
+(3165201024u32,27u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 0n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2928930816u32,21u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 0u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= None; ospfOrigin= 0n; weight= 0u16; }); selected= Some(0u2); static= None; }
+(2250178560u32,17u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 1u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= None; ospfOrigin= 0n; weight= 0u16; }); selected= Some(0u2); static= None; }
+(2365587456u32,8u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 0n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2147483648u32,1u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 0n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; } }
+
+Node 1
+---------
+{ (2208169720u32,29u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 1u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= None; ospfOrigin= 1n; weight= 0u16; }); selected= Some(0u2); static= None; }
+(3165201024u32,27u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2928930816u32,21u6) |-> {  bgp= None; connected= None; ospf= Some({  areaId= 1u32; areaType= 1u2; ospfAd= 110u8; ospfNextHop= Some(1~0); ospfOrigin= 0n; weight= 1u16; }); selected= Some(2u2); static= None; }
+(2250178560u32,17u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 1u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= None; ospfOrigin= 1n; weight= 0u16; }); selected= Some(0u2); static= None; }
+(2365587456u32,8u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2147483648u32,1u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; } }
+
+Node 2
+---------
+{ (2208169720u32,29u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 1u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= Some(2~1); ospfOrigin= 1n; weight= 1u16; }); selected= Some(0u2); static= None; }
+(3165201024u32,27u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2928930816u32,21u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 0u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= None; ospfOrigin= 2n; weight= 0u16; }); selected= Some(0u2); static= None; }
+(2250178560u32,17u6) |-> {  bgp= None; connected= None; ospf= Some({  areaId= 1u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= Some(2~1); ospfOrigin= 1n; weight= 1u16; }); selected= Some(2u2); static= None; }
+(2365587456u32,8u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2147483648u32,1u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; } }
+
+Success: No assertions provided, so none failed
+
+Entire Program took: 0.009162 secs to complete

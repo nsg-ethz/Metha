@@ -1,0 +1,27 @@
+Router1
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router1(config)#end
+Router1#
+
+
+Router0
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#router ospf 100
+Router0(config-router)# max-metric router-lsa  include-stub  summary-lsa 8007324
+Router0(config-router)#exit
+Router0(config)#end
+Router0#
+
+
+Router2
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router2(config)#router ospf 100
+Router2(config-router)#no max-metric router-lsa
+Router2(config-router)#exit
+Router2(config)#end
+Router2#
+
+

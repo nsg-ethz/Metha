@@ -1,0 +1,26 @@
+Processing /run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/bgp-bestpath-missing-as-worst/nv-gen_control.nv
+Interpreted simulation took: 0.001874 secs to complete
+No counterexamples found
+
+Printing solutions for sol~0
+Node 0
+---------
+{ (2612435965u32,32u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2806485481u32,32u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~2); comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3544568068u32,30u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(3260674048u32,20u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; } }
+
+Node 1
+---------
+{ (2518915355u32,32u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2806485481u32,32u6) |-> {  bgp= Some({  aslen= 2u32; bgpAd= 20u8; bgpNextHop= Some(1~0); comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3260674048u32,20u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; } }
+
+Node 2
+---------
+{ (2806485481u32,32u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; comms= {  }; lp= 100u32; med= 80u32; }); connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(3544568068u32,30u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; } }
+
+Success: No assertions provided, so none failed
+
+Entire Program took: 0.007140 secs to complete

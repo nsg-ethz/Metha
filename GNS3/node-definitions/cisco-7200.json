@@ -1,0 +1,29 @@
+{
+  "symbol": ":/symbols/router.svg",
+  "properties": {
+    "platform": "c7200",
+    "nvram": 512,
+    "image": "c7200-adventerprisek9-mz.124-24.T8.image",
+    "ram": 512,
+    "auto_delete_disks": true,
+    "slot0": "C7200-IO-2FE",
+    "slot1": "PA-2FE-TX",
+    "slot2": "PA-2FE-TX",
+    "slot3": "PA-2FE-TX",
+    "slot4": "PA-2FE-TX",
+    "system_id": "FTX0945W0MY",
+    "idlepc": "0x606e0510",
+    "idlemax": 500,
+    "idlesleep": 30,
+    "exec_area": 64,
+    "mmap": true,
+    "sparsemem": true,
+    "midplane": "vxr",
+    "npe": "npe-400",
+    "startup_config": "ios_base_startup-config.txt",
+    "private_config": ""
+  },
+  "console_type": "telnet",
+  "compute_id": "local",
+  "node_type": "dynamips"
+}

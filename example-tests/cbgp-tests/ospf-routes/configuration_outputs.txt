@@ -1,0 +1,28 @@
+Router0
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#end
+Router0#
+
+
+Router1
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router1(config)#end
+Router1#
+
+
+Router3
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router3(config)#end
+Router3#
+
+
+Router2
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router2(config)#end
+Router2#
+
+

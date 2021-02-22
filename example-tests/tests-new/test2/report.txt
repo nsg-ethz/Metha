@@ -1,0 +1,55 @@
+DataComPy Comparison
+--------------------
+
+DataFrame Summary
+-----------------
+
+  DataFrame  Columns  Rows
+0   Batfish        8    15
+1      GNS3        8    14
+
+Column Summary
+--------------
+
+Number of columns in common: 8
+Number of columns in Batfish but not in GNS3: 0
+Number of columns in GNS3 but not in Batfish: 0
+
+Row Summary
+-----------
+
+Matched on: node, network, next_hop, next_hop_ip, next_hop_interface, protocol, metric, admin_distance
+Any duplicates on match values: No
+Absolute Tolerance: 0
+Relative Tolerance: 0
+Number of rows in common: 11
+Number of rows in Batfish but not in GNS3: 4
+Number of rows in GNS3 but not in Batfish: 3
+
+Number of rows with some compared columns unequal: 0
+Number of rows with all compared columns equal: 11
+
+Column Comparison
+-----------------
+
+Number of columns compared with some values unequal: 0
+Number of columns compared with all values equal: 8
+Total number of values which compare unequal: 0
+
+Sample Rows Only in Batfish (First 10 Columns)
+----------------------------------------------
+
+      node            network next_hop   next_hop_ip next_hop_interface protocol   metric  admin_distance
+3  router1          0.0.0.0/0  router0  204.242.48.1            dynamic   ospfE2      1.0           110.0
+2  router1    197.207.16.0/23  router0  204.242.48.1            dynamic   ospfIA  65556.0           110.0
+9  router2          0.0.0.0/0  router0  197.207.16.1            dynamic   ospfE2      1.0           110.0
+6  router0  214.33.225.192/29  router1  204.242.48.2            dynamic     ospf  65536.0           110.0
+
+Sample Rows Only in GNS3 (First 10 Columns)
+-------------------------------------------
+
+       node            network next_hop   next_hop_ip next_hop_interface protocol   metric  admin_distance
+15  router0  214.33.225.192/29  router1  204.242.48.2            dynamic     ospf  65536.0           194.0
+17  router1    197.207.16.0/23  router0  204.242.48.1            dynamic   ospfIA  65556.0           132.0
+16  router1          0.0.0.0/0  router0  204.242.48.1            dynamic   ospfE2      1.0           132.0
+

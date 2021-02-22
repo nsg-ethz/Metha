@@ -1,0 +1,60 @@
+DataComPy Comparison
+--------------------
+
+DataFrame Summary
+-----------------
+
+  DataFrame  Columns  Rows
+0   Batfish        7    14
+1      GNS3        7     4
+
+Column Summary
+--------------
+
+Number of columns in common: 7
+Number of columns in Batfish but not in GNS3: 0
+Number of columns in GNS3 but not in Batfish: 0
+
+Row Summary
+-----------
+
+Matched on: node, network, next_hop, next_hop_ip, next_hop_interface, protocol, metric
+Any duplicates on match values: No
+Absolute Tolerance: 0
+Relative Tolerance: 0
+Number of rows in common: 2
+Number of rows in Batfish but not in GNS3: 12
+Number of rows in GNS3 but not in Batfish: 2
+
+Number of rows with some compared columns unequal: 0
+Number of rows with all compared columns equal: 2
+
+Column Comparison
+-----------------
+
+Number of columns compared with some values unequal: 0
+Number of columns compared with all values equal: 7
+Total number of values which compare unequal: 0
+
+Sample Rows Only in Batfish (First 10 Columns)
+----------------------------------------------
+
+       node            network next_hop   next_hop_ip next_hop_interface protocol  metric
+0   router0      149.21.0.0/19  router2    149.21.0.1            dynamic     ospf     1.0
+2   router0    198.32.47.96/27  router1  198.32.47.97            dynamic     ospf     1.0
+3   router0  217.192.223.35/32  router1  198.32.47.97            dynamic     ospf     1.0
+7   router1    198.32.47.96/27  router0  198.32.47.98            dynamic     ospf     1.0
+6   router1    192.66.20.46/32  router0  198.32.47.98            dynamic     ospf     2.0
+1   router0    192.66.20.46/32  router2    149.21.0.1            dynamic     ospf     1.0
+9   router2      149.21.0.0/19  router0    149.21.0.2            dynamic     ospf     1.0
+12  router2  217.192.223.35/32  router0    149.21.0.2            dynamic     ospf     2.0
+8   router1    209.91.27.87/32  router0  198.32.47.98            dynamic     ospf     1.0
+10  router2    198.32.47.96/27  router0    149.21.0.2            dynamic     ospf     2.0
+
+Sample Rows Only in GNS3 (First 10 Columns)
+-------------------------------------------
+
+       node          network next_hop   next_hop_ip next_hop_interface protocol  metric
+14  router1    149.21.0.0/19  router0  198.32.47.97            dynamic     ospf     2.0
+15  router2  198.32.47.96/27  router0    149.21.0.1            dynamic     ospf     2.0
+

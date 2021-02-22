@@ -1,0 +1,16 @@
+Router0:
+135: distance 192
+151: redistribute connected
+157: neighbor 188.19.105.2 default-originate route-map map3
+161: distance bgp 147 180 12
+166: aggregate-address 197.212.160.0 255.255.248.0 as-set summary-only
+
+Router1:
+144: redistribute connected route-map map4
+149: neighbor 181.236.228.1 route-map map4 in
+151: neighbor 197.108.167.2 default-originate
+
+Router2:
+147: redistribute connected route-map map5
+156: neighbor 197.108.167.1 default-originate route-map map4
+159: auto-summary

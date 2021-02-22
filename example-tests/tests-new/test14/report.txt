@@ -1,0 +1,65 @@
+DataComPy Comparison
+--------------------
+
+DataFrame Summary
+-----------------
+
+  DataFrame  Columns  Rows
+0   Batfish        8    23
+1      GNS3        8    22
+
+Column Summary
+--------------
+
+Number of columns in common: 8
+Number of columns in Batfish but not in GNS3: 0
+Number of columns in GNS3 but not in Batfish: 0
+
+Row Summary
+-----------
+
+Matched on: node, network, next_hop, next_hop_ip, next_hop_interface, protocol, metric, admin_distance
+Any duplicates on match values: No
+Absolute Tolerance: 0
+Relative Tolerance: 0
+Number of rows in common: 14
+Number of rows in Batfish but not in GNS3: 9
+Number of rows in GNS3 but not in Batfish: 8
+
+Number of rows with some compared columns unequal: 0
+Number of rows with all compared columns equal: 14
+
+Column Comparison
+-----------------
+
+Number of columns compared with some values unequal: 0
+Number of columns compared with all values equal: 8
+Total number of values which compare unequal: 0
+
+Sample Rows Only in Batfish (First 10 Columns)
+----------------------------------------------
+
+       node           network next_hop     next_hop_ip next_hop_interface   protocol      metric  admin_distance
+5   router1   188.19.105.0/27     None     159.192.0.7            dynamic        bgp         0.0            20.0
+15  router0         0.0.0.0/0  router1   181.236.228.2            dynamic     ospfE1  16777215.0           110.0
+2   router1    159.192.0.0/25     None     159.192.0.7            dynamic        bgp         0.0            20.0
+20  router0  197.108.167.0/24     None     159.192.0.7            dynamic        bgp         0.0            20.0
+21  router2         0.0.0.0/0     None    188.19.105.1            dynamic        bgp         0.0            20.0
+10  router0    159.192.0.0/25     None    188.19.105.2            dynamic        bgp         0.0            20.0
+11  router1  159.204.194.0/27     None     159.192.0.7            dynamic        bgp         0.0            20.0
+14  router0  197.212.160.0/21     None  AUTO/NONE(-1l)     null_interface  aggregate         0.0           200.0
+8   router1  197.212.160.0/21     None     159.192.0.7            dynamic        bgp         0.0            20.0
+
+Sample Rows Only in GNS3 (First 10 Columns)
+-------------------------------------------
+
+       node           network next_hop     next_hop_ip next_hop_interface   protocol      metric  admin_distance
+23  router0  197.108.167.0/24  router2    188.19.105.2            dynamic       ospf    131070.0           192.0
+26  router0         0.0.0.0/0  router1   181.236.228.2            dynamic     ospfE1  16777215.0           192.0
+25  router0    159.192.0.0/16     None    188.19.105.2            dynamic        bgp         0.0           147.0
+29  router1   188.19.105.0/27  router0   181.236.228.1            dynamic       ospf    131070.0           110.0
+28  router1   188.19.105.0/27  router2   197.108.167.2            dynamic       ospf    131070.0           110.0
+24  router0  197.108.167.0/24  router1   181.236.228.2            dynamic       ospf    131070.0           192.0
+30  router2         0.0.0.0/0  router1   197.108.167.1            dynamic     ospfE1  16777215.0           110.0
+27  router0  197.212.160.0/21     None  AUTO/NONE(-1l)     null_interface  aggregate         0.0            12.0
+

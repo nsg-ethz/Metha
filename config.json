@@ -1,0 +1,17 @@
+{
+  "topology_path": "./topologies",
+  "max_base_tests": 100,
+  "gns3": {
+    "host": "localhost",
+    "port": 3080,
+    "router_path": "./GNS3/node-definitions",
+    "rt_converged_num": 10,
+    "rt_read_sleep": 10,
+    "restart_interval": 20,
+    "same_system": false
+  },
+  "pict_command": "../ext-systems/pict/pict",
+  "nv_command": "../ext-systems/network-verification/nv/_build/default/src/exe/main.exe",
+  "cbgp_command": "cbgp",
+  "nv_batfish": "../ext-systems/network-verification/batfish"
+}

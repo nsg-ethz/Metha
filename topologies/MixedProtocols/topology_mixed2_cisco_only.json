@@ -1,0 +1,9 @@
+{
+  "num_nodes": 3,
+  "num_ases": 2,
+  "num_areas": 1,
+  "links": [[0, 1], [0, 2]],
+  "ospf_areas": [0, null, null],
+  "ases": [0, 0, 1],
+  "router_types": ["Cisco7200", "Cisco7200", "Cisco7200"]
+}

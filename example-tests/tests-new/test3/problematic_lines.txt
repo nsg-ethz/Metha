@@ -1,0 +1,11 @@
+Router0:
+123: max-metric router-lsa include-stub summary-lsa 15785963
+131: distance 194
+
+Router1:
+121: max-metric router-lsa summary-lsa
+131: distance 132
+
+Router2:
+122: max-metric router-lsa summary-lsa external-lsa
+127: redistribute static

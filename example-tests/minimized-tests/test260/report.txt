@@ -1,0 +1,54 @@
+DataComPy Comparison
+--------------------
+
+DataFrame Summary
+-----------------
+
+  DataFrame  Columns  Rows
+0   Batfish        8     9
+1      GNS3        8     9
+
+Column Summary
+--------------
+
+Number of columns in common: 8
+Number of columns in Batfish but not in GNS3: 0
+Number of columns in GNS3 but not in Batfish: 0
+
+Row Summary
+-----------
+
+Matched on: node, network, next_hop, next_hop_ip, next_hop_interface, protocol, metric, admin_distance
+Any duplicates on match values: No
+Absolute Tolerance: 0
+Relative Tolerance: 0
+Number of rows in common: 6
+Number of rows in Batfish but not in GNS3: 3
+Number of rows in GNS3 but not in Batfish: 3
+
+Number of rows with some compared columns unequal: 0
+Number of rows with all compared columns equal: 6
+
+Column Comparison
+-----------------
+
+Number of columns compared with some values unequal: 0
+Number of columns compared with all values equal: 8
+Total number of values which compare unequal: 0
+
+Sample Rows Only in Batfish (First 10 Columns)
+----------------------------------------------
+
+      node             network next_hop    next_hop_ip next_hop_interface protocol  metric  admin_distance
+4  router0  131.157.254.248/29  router2     134.31.0.2            dynamic     ospf     2.0           110.0
+6  router1       134.31.0.0/17  router0  174.147.240.1            dynamic   ospfIA     2.0           110.0
+0  router2    174.147.240.0/21  router0     134.31.0.1            dynamic   ospfIA     2.0           110.0
+
+Sample Rows Only in GNS3 (First 10 Columns)
+-------------------------------------------
+
+       node             network next_hop    next_hop_ip next_hop_interface protocol  metric  admin_distance
+10  router1       134.31.0.0/17  router0  174.147.240.1            dynamic   ospfIA     2.0           105.0
+9   router2    174.147.240.0/21  router0     134.31.0.1            dynamic   ospfIA     2.0           108.0
+11  router0  131.157.254.248/29  router2     134.31.0.2            dynamic     ospf     2.0            82.0
+

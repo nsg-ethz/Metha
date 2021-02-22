@@ -1,0 +1,10 @@
+{
+    "nodes": [
+        {
+            "name": "Router1",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/set-local-preference-max/configs/Router1.cfg"
+        }
+    ],
+    "links": []
+}

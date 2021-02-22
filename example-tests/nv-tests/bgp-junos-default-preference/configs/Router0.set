@@ -1,0 +1,31 @@
+set version 18.2R1.9
+set system root-authentication encrypted-password "$6$5e4bMlUm$PbzLjZviqrGsMEXwmt.URYuW/O6Cy4leZ.c31f2/AIxVuAP1FbuycJJuRq7vCKhO5lURlWPOyXLL91ZX0n2B7."
+set system host-name Router0
+set system syslog user * any emergency
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set system processes dhcp-service traceoptions file dhcp_logfile
+set system processes dhcp-service traceoptions file size 10m
+set system processes dhcp-service traceoptions level all
+set system processes dhcp-service traceoptions flag packet
+set interfaces ge-0/0/0 unit 0 family inet address 211.69.209.5/30
+set interfaces ge-0/0/1 unit 0 family inet address 194.89.240.1/20
+set interfaces fxp0 unit 0 family inet dhcp vendor-id Juniper-vmx-VM5F2AF81AD2
+set routing-options router-id 155.182.155.253
+set routing-options autonomous-system 1
+set protocols bgp family inet unicast
+set protocols bgp group IBGP type internal
+set protocols bgp group IBGP local-address 155.182.155.253
+set protocols bgp group IBGP family inet unicast
+set protocols bgp group EBGP type external
+set protocols bgp group EBGP neighbor 211.69.209.6 peer-as 2
+set protocols bgp group EBGP neighbor 194.89.240.2 peer-as 3
+set policy-options policy-statement send-bgp term 1 from protocol bgp
+set policy-options policy-statement send-bgp term 1 then accept
+set policy-options policy-statement send-direct term 1 from protocol direct
+set policy-options policy-statement send-direct term 1 then accept
+set policy-options policy-statement send-ospf term 1 from protocol ospf
+set policy-options policy-statement send-ospf term 1 then accept
+set policy-options policy-statement send-static term 1 from protocol static
+set policy-options policy-statement send-static term 1 then accept

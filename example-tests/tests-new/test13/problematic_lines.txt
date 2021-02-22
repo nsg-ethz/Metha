@@ -1,0 +1,22 @@
+Router0:
+122: max-metric router-lsa summary-lsa external-lsa
+126: redistribute connected
+131: distance 192
+146: redistribute connected
+149: neighbor 181.236.228.2 default-originate
+155: neighbor 188.19.105.2 default-originate route-map map3
+
+Router1:
+124: max-metric router-lsa summary-lsa external-lsa
+128: redistribute static
+129: redistribute bgp 2
+134: distance 86
+147: redistribute connected route-map map4
+148: redistribute static route-map map1
+150: neighbor 181.236.228.1 default-originate
+168: ip route 128.0.0.0 128.0.0.0 FastEthernet0/0
+
+Router2:
+125: redistribute bgp 3
+130: distance 173
+145: neighbor 188.19.105.1 default-originate

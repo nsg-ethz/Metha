@@ -1,0 +1,39 @@
+Router0
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#end
+Router0#
+
+
+Router2
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router2(config)#router ospf 100
+Router2(config-router)# default-metric 4
+Router2(config-router)#exit
+Router2(config)#ip route 143.128.0.0 255.192.0.0 FastEthernet0/0
+Router2(config)#interface FastEthernet0/0
+Router2(config-if)#no ip ospf cost
+Router2(config-if)#exit
+Router2(config)#end
+Router2#
+
+
+Router1
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router1(config)#interface FastEthernet0/0
+Router1(config-if)# ip ospf cost 5
+Router1(config-if)#exit
+Router1(config)#router ospf 100
+Router1(config-router)# default-metric 81
+Router1(config-router)#exit
+Router1(config)#router ospf 100
+Router1(config-router)#no auto-cost reference-bandwidth 355
+% OSPF: Reference bandwidth is changed. 
+        Please ensure reference bandwidth is consistent across all routers.
+Router1(config-router)#exit
+Router1(config)#end
+Router1#
+
+

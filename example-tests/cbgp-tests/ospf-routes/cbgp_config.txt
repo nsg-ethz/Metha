@@ -1,0 +1,60 @@
+net add node 209.91.27.87
+net add node 217.192.223.35
+net add node 192.66.20.46
+net add node 168.62.204.243
+net add link-ptp 209.91.27.87 198.32.47.97/27 217.192.223.35 198.32.47.98/27
+net add link-ptp 209.91.27.87 149.21.0.1/19 192.66.20.46 149.21.0.2/19
+net add link-ptp 217.192.223.35 169.111.120.44/31 168.62.204.243 169.111.120.45/31
+net add domain 1 igp
+net add domain 2 igp
+net node 209.91.27.87 domain 1
+net node 209.91.27.87 iface 198.32.47.97/27
+ igp-weight 1
+ exit
+net node 209.91.27.87 iface 149.21.0.1/19
+ igp-weight 1
+ exit
+net node 217.192.223.35 domain 1
+net node 217.192.223.35 iface 198.32.47.98/27
+ igp-weight 1
+ exit
+net node 192.66.20.46 domain 1
+net node 192.66.20.46 iface 149.21.0.2/19
+ igp-weight 1
+ exit
+net node 168.62.204.243 domain 2
+net node 217.192.223.35 route add --oif=169.111.120.44/31 169.111.120.45/32 0
+net node 168.62.204.243 route add --oif=169.111.120.45/31 169.111.120.44/32 0
+bgp add router 1 209.91.27.87
+bgp add router 1 217.192.223.35
+bgp add router 1 192.66.20.46
+bgp add router 2 168.62.204.243
+bgp router 209.91.27.87
+ add peer 1 217.192.223.35
+ peer 217.192.223.35 up
+ exit
+bgp router 209.91.27.87
+ add peer 1 192.66.20.46
+ peer 192.66.20.46 up
+ exit
+bgp router 217.192.223.35
+ add peer 1 209.91.27.87
+ peer 209.91.27.87 up
+ exit
+bgp router 217.192.223.35
+ add peer 2 169.111.120.45
+ peer 169.111.120.45 up
+ exit
+bgp router 192.66.20.46
+ add peer 1 209.91.27.87
+ peer 209.91.27.87 up
+ exit
+bgp router 168.62.204.243
+ add peer 1 169.111.120.44
+ peer 169.111.120.44 up
+ exit
+
+
+net domain 1 compute
+net domain 2 compute
+sim run

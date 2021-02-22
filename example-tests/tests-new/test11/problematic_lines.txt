@@ -1,0 +1,12 @@
+Router0:
+128: redistribute static
+133: distance 177
+
+Router1:
+126: max-metric router-lsa include-stub summary-lsa 3188918 external-lsa 5515363
+134: distance 210
+164: aggregate-address 139.170.86.0 255.255.255.0 as-set summary-only
+
+Router2:
+127: redistribute bgp 3
+147: redistribute static route-map map3

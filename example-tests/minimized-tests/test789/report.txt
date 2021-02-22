@@ -1,0 +1,49 @@
+DataComPy Comparison
+--------------------
+
+DataFrame Summary
+-----------------
+
+  DataFrame  Columns  Rows
+0   Batfish        8    15
+1      GNS3        8    21
+
+Column Summary
+--------------
+
+Number of columns in common: 8
+Number of columns in Batfish but not in GNS3: 0
+Number of columns in GNS3 but not in Batfish: 0
+
+Row Summary
+-----------
+
+Matched on: node, network, next_hop, next_hop_ip, next_hop_interface, protocol, metric, admin_distance
+Any duplicates on match values: No
+Absolute Tolerance: 0
+Relative Tolerance: 0
+Number of rows in common: 15
+Number of rows in Batfish but not in GNS3: 0
+Number of rows in GNS3 but not in Batfish: 6
+
+Number of rows with some compared columns unequal: 0
+Number of rows with all compared columns equal: 15
+
+Column Comparison
+-----------------
+
+Number of columns compared with some values unequal: 0
+Number of columns compared with all values equal: 8
+Total number of values which compare unequal: 0
+
+Sample Rows Only in GNS3 (First 10 Columns)
+-------------------------------------------
+
+       node         network next_hop    next_hop_ip next_hop_interface protocol  metric  admin_distance
+15  router0  143.128.0.0/10  router2  200.91.98.130            dynamic   ospfE2    20.0           110.0
+18  router1    128.0.0.0/10  router0  203.248.141.1            dynamic   ospfE2    20.0           110.0
+20  router2     128.0.0.0/2  router0  200.91.98.129            dynamic   ospfE2    20.0           110.0
+16  router0    128.0.0.0/10  router2  200.91.98.130            dynamic   ospfE2    20.0           110.0
+17  router1  143.128.0.0/10  router0  203.248.141.1            dynamic   ospfE2    20.0           110.0
+19  router1     128.0.0.0/2  router0  203.248.141.1            dynamic   ospfE2    20.0           110.0
+

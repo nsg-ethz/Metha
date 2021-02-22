@@ -1,0 +1,57 @@
+{
+    "nodes": [
+        {
+            "name": "Router0",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/ospf-redistribute/configs/Router0.cfg"
+        },
+        {
+            "name": "Router1",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/ospf-redistribute/configs/Router1.cfg"
+        },
+        {
+            "name": "Router2",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/ospf-redistribute/configs/Router2.cfg"
+        }
+    ],
+    "links": [
+        {
+            "node1": {
+                "name": "Router0",
+                "adapter": 0,
+                "port": 0
+            },
+            "node2": {
+                "name": "Router1",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "Router0",
+                "adapter": 0,
+                "port": 1
+            },
+            "node2": {
+                "name": "Router2",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "Router1",
+                "adapter": 0,
+                "port": 1
+            },
+            "node2": {
+                "name": "Router2",
+                "adapter": 0,
+                "port": 1
+            }
+        }
+    ]
+}

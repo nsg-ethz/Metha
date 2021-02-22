@@ -1,0 +1,164 @@
+{
+    "nodes": [
+        {
+            "name": "R0A99",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example1/configs/r0a99.cfg"
+        },
+        {
+            "name": "R10A99",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example1/configs/r10a99.cfg"
+        },
+        {
+            "name": "R1A1",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example1/configs/r1a1.cfg"
+        },
+        {
+            "name": "R1A10",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example1/configs/r1a10.cfg"
+        },
+        {
+            "name": "R1A51",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example1/configs/r1a51.cfg"
+        },
+        {
+            "name": "R1A99",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example1/configs/r1a99.cfg"
+        },
+        {
+            "name": "R2A1",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example1/configs/r2a1.cfg"
+        },
+        {
+            "name": "R2A10",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example1/configs/r2a10.cfg"
+        },
+        {
+            "name": "R2A51",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example1/configs/r2a51.cfg"
+        },
+        {
+            "name": "R51A99",
+            "router_type": "Cisco7200",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/motivation-networks/example1/configs/r51a99.cfg"
+        }
+    ],
+    "links": [
+        {
+            "node1": {
+                "name": "R0A99",
+                "adapter": 0,
+                "port": 1
+            },
+            "node2": {
+                "name": "R10A99",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "R10A99",
+                "adapter": 0,
+                "port": 1
+            },
+            "node2": {
+                "name": "R1A10",
+                "adapter": 0,
+                "port": 1
+            }
+        },
+        {
+            "node1": {
+                "name": "R0A99",
+                "adapter": 0,
+                "port": 0
+            },
+            "node2": {
+                "name": "R1A99",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "R1A1",
+                "adapter": 0,
+                "port": 1
+            },
+            "node2": {
+                "name": "R1A99",
+                "adapter": 0,
+                "port": 1
+            }
+        },
+        {
+            "node1": {
+                "name": "R1A1",
+                "adapter": 0,
+                "port": 0
+            },
+            "node2": {
+                "name": "R2A1",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "R1A10",
+                "adapter": 0,
+                "port": 0
+            },
+            "node2": {
+                "name": "R2A10",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "R1A51",
+                "adapter": 0,
+                "port": 0
+            },
+            "node2": {
+                "name": "R2A51",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "R0A99",
+                "adapter": 1,
+                "port": 0
+            },
+            "node2": {
+                "name": "R51A99",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "R1A51",
+                "adapter": 0,
+                "port": 1
+            },
+            "node2": {
+                "name": "R51A99",
+                "adapter": 0,
+                "port": 1
+            }
+        }
+    ]
+}

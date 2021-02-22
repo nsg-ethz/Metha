@@ -1,0 +1,62 @@
+DataComPy Comparison
+--------------------
+
+DataFrame Summary
+-----------------
+
+  DataFrame  Columns  Rows
+0   Batfish        8    17
+1      GNS3        8    17
+
+Column Summary
+--------------
+
+Number of columns in common: 8
+Number of columns in Batfish but not in GNS3: 0
+Number of columns in GNS3 but not in Batfish: 0
+
+Row Summary
+-----------
+
+Matched on: node, network, next_hop, next_hop_ip, next_hop_interface, protocol, metric, admin_distance
+Any duplicates on match values: No
+Absolute Tolerance: 0
+Relative Tolerance: 0
+Number of rows in common: 10
+Number of rows in Batfish but not in GNS3: 7
+Number of rows in GNS3 but not in Batfish: 7
+
+Number of rows with some compared columns unequal: 0
+Number of rows with all compared columns equal: 10
+
+Column Comparison
+-----------------
+
+Number of columns compared with some values unequal: 0
+Number of columns compared with all values equal: 8
+Total number of values which compare unequal: 0
+
+Sample Rows Only in Batfish (First 10 Columns)
+----------------------------------------------
+
+       node           network next_hop    next_hop_ip next_hop_interface protocol  metric  admin_distance
+8   router0  197.212.160.0/20  router1  181.236.228.2            dynamic   ospfE2    43.0           110.0
+6   router0         0.0.0.0/0     None  181.236.228.2            dynamic      bgp     0.0            20.0
+1   router2  197.212.160.0/20  router0   188.19.105.1            dynamic   ospfE2    43.0           110.0
+14  router2         0.0.0.0/0     None   188.19.105.1            dynamic      bgp     0.0            20.0
+3   router2  181.236.228.0/24  router0   188.19.105.1            dynamic     ospf    23.0           110.0
+7   router1         0.0.0.0/0     None  181.236.228.1            dynamic      bgp     0.0            20.0
+4   router0  197.108.167.0/24  router1  181.236.228.2            dynamic     ospf     5.0           110.0
+
+Sample Rows Only in GNS3 (First 10 Columns)
+-------------------------------------------
+
+       node           network next_hop    next_hop_ip next_hop_interface protocol  metric  admin_distance
+18  router0  197.212.160.0/20  router1  181.236.228.2            dynamic   ospfE2    43.0           177.0
+23  router2  197.212.160.0/20  router0   188.19.105.1            dynamic   ospfE2    43.0           122.0
+20  router1       128.0.0.0/1  router2  197.108.167.2            dynamic   ospfE2    18.0           110.0
+22  router2         0.0.0.0/0  router0   188.19.105.1            dynamic   ospfE2     1.0           122.0
+21  router2  181.236.228.0/24  router0   188.19.105.1            dynamic     ospf    23.0           122.0
+17  router0  197.108.167.0/24  router1  181.236.228.2            dynamic     ospf     5.0           177.0
+19  router0       128.0.0.0/1  router1  181.236.228.2            dynamic   ospfE2    18.0           177.0
+

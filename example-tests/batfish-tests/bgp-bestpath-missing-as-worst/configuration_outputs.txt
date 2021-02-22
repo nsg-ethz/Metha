@@ -1,0 +1,21 @@
+Router0
+
+
+
+Router1
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router1(config)#end
+Router1#
+
+
+Router2
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router2(config)#router bgp 3
+Router2(config-router)# bgp client-to-client reflection
+Router2(config-router)#exit
+Router2(config)#end
+Router2#
+
+

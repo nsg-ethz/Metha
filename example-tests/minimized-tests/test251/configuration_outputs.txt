@@ -1,0 +1,33 @@
+Router0
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#router bgp 1
+Router0(config-router)# neighbor 222.28.200.2 default-originate
+Router0(config-router)#exit
+Router0(config)#end
+Router0#
+
+
+Router1
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router1(config)#end
+Router1#
+
+
+Router2
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router2(config)#router bgp 3
+Router2(config-router)# neighbor 132.254.178.1 default-originate
+Router2(config-router)#exit
+Router2(config)#router bgp 3
+Router2(config-router)#no neighbor 161.238.103.97 default-originate
+Router2(config-router)#exit
+Router2(config)#no route-map map3
+Router2(config)#no ip prefix-list list2
+Router2(config)#no ip prefix-list list3
+Router2(config)#end
+Router2#
+
+

@@ -1,0 +1,30 @@
+Processing /run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/minimized-tests/test789/nv-gen_control.nv
+Interpreted simulation took: 0.001993 secs to complete
+No counterexamples found
+
+Printing solutions for sol~0
+Node 0
+---------
+{ (3361432192u32,27u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 1u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= None; weight= 0u16; }); selected= Some(0u2); static= None; }
+(3422063872u32,26u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 0u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= None; weight= 0u16; }); selected= Some(0u2); static= None; }
+(3160571904u32,22u6) |-> {  bgp= None; connected= None; ospf= Some({  areaId= 0u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= Some(0~2); weight= 5u16; }); selected= Some(2u2); static= None; }
+(2147483648u32,2u6) |-> {  bgp= None; connected= None; ospf= None; selected= Some(1u2); static= Some(1u8); } }
+
+Node 1
+---------
+{ (3361432192u32,27u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 1u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= None; weight= 0u16; }); selected= Some(0u2); static= None; }
+(3422063872u32,26u6) |-> {  bgp= None; connected= None; ospf= Some({  areaId= 0u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= Some(1~2); weight= 1u16; }); selected= Some(2u2); static= None; }
+(3160571904u32,22u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 0u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= Some(1~2); weight= 1u16; }); selected= Some(0u2); static= None; }
+(2407530496u32,10u6) |-> {  bgp= None; connected= None; ospf= None; selected= Some(1u2); static= Some(1u8); }
+(2147483648u32,10u6) |-> {  bgp= None; connected= None; ospf= None; selected= Some(1u2); static= Some(1u8); } }
+
+Node 2
+---------
+{ (3361432192u32,27u6) |-> {  bgp= None; connected= None; ospf= Some({  areaId= 0u32; areaType= 1u2; ospfAd= 110u8; ospfNextHop= Some(2~0); weight= 1u16; }); selected= Some(2u2); static= None; }
+(3422063872u32,26u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 0u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= None; weight= 0u16; }); selected= Some(0u2); static= None; }
+(3160571904u32,22u6) |-> {  bgp= None; connected= Some(0u8); ospf= Some({  areaId= 0u32; areaType= 0u2; ospfAd= 110u8; ospfNextHop= None; weight= 0u16; }); selected= Some(0u2); static= None; }
+(2147483648u32,8u6) |-> {  bgp= None; connected= None; ospf= None; selected= Some(1u2); static= Some(1u8); } }
+
+Success: No assertions provided, so none failed
+
+Entire Program took: 0.006849 secs to complete

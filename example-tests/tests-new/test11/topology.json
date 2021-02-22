@@ -1,0 +1,54 @@
+{
+    "nodes": [
+        {
+            "name": "Router0",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/tests-new/test11/configs/Router0.cfg"
+        },
+        {
+            "name": "Router1",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/tests-new/test11/configs/Router1.cfg"
+        },
+        {
+            "name": "Router2",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/tests-new/test11/configs/Router2.cfg"
+        }
+    ],
+    "links": [
+        {
+            "node1": {
+                "name": "Router0",
+                "adapter": 0,
+                "port": 0
+            },
+            "node2": {
+                "name": "Router1",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "Router0",
+                "adapter": 0,
+                "port": 1
+            },
+            "node2": {
+                "name": "Router2",
+                "adapter": 0,
+                "port": 0
+            }
+        },
+        {
+            "node1": {
+                "name": "Router1",
+                "adapter": 0,
+                "port": 1
+            },
+            "node2": {
+                "name": "Router2",
+                "adapter": 0,
+                "port": 1
+            }
+        }
+    ]
+}

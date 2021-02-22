@@ -1,0 +1,56 @@
+DataComPy Comparison
+--------------------
+
+DataFrame Summary
+-----------------
+
+  DataFrame  Columns  Rows
+0       SUT        6     9
+1      GNS3        6    11
+
+Column Summary
+--------------
+
+Number of columns in common: 6
+Number of columns in SUT but not in GNS3: 0
+Number of columns in GNS3 but not in SUT: 0
+
+Row Summary
+-----------
+
+Matched on: node, network, next_hop, protocol, metric, admin_distance
+Any duplicates on match values: No
+Absolute Tolerance: 0
+Relative Tolerance: 0
+Number of rows in common: 6
+Number of rows in SUT but not in GNS3: 3
+Number of rows in GNS3 but not in SUT: 5
+
+Number of rows with some compared columns unequal: 0
+Number of rows with all compared columns equal: 6
+
+Column Comparison
+-----------------
+
+Number of columns compared with some values unequal: 0
+Number of columns compared with all values equal: 6
+Total number of values which compare unequal: 0
+
+Sample Rows Only in SUT (First 10 Columns)
+------------------------------------------
+
+      node            network next_hop protocol  metric  admin_distance
+1  router0   155.80.55.216/32  router2      bgp    80.0            20.0
+3  router0  209.104.187.64/26     None   static     0.0             1.0
+0  router0   178.46.114.99/32  router1      bgp    80.0            20.0
+
+Sample Rows Only in GNS3 (First 10 Columns)
+-------------------------------------------
+
+       node            network next_hop protocol  metric  admin_distance
+9   router1   155.80.55.216/32  router0      bgp     0.0            20.0
+10  router2   178.46.114.99/32  router0      bgp     0.0            20.0
+13  router0  209.104.187.64/26     None   static     0.0             5.0
+11  router0   155.80.55.216/32  router2      bgp     0.0           170.0
+12  router0   178.46.114.99/32  router1      bgp     0.0           170.0
+

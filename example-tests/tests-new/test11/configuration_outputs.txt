@@ -1,0 +1,267 @@
+Router0
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#interface FastEthernet0/0
+Router0(config-if)# ip ospf priority 225
+Router0(config-if)#exit
+Router0(config)#interface FastEthernet0/1
+Router0(config-if)# ip ospf priority 27
+Router0(config-if)#exit
+Router0(config)#router ospf 100
+Router0(config-router)# area 0 range 159.204.192.0 255.255.192.0 cost 100
+Router0(config-router)# redistribute bgp 1
+% Only classful networks will be redistributed
+Router0(config-router)# max-metric router-lsa  external-lsa 6470933 include-stub  summary-lsa 14441047
+Router0(config-router)#exit
+Router0(config)#router bgp 1
+Router0(config-router)# bgp bestpath med confed  missing-as-worst
+Router0(config-router)# bgp bestpath med missing-as-worst
+Router0(config-router)# bgp default local-preference 945
+Router0(config-router)# bgp dampening
+Router0(config-router)# table-map map2
+Router0(config-router)# aggregate-address 159.192.0.0 255.192.0.0
+Router0(config-router)# neighbor 181.236.228.2 update-source FastEthernet0/1
+Router0(config-router)# neighbor 188.19.105.2 update-source FastEthernet0/1
+Router0(config-router)# neighbor 188.19.105.2 capability orf prefix-list  both
+Router0(config-router)#exit
+Router0(config)#ip route 174.0.0.0 254.0.0.0 FastEthernet0/0
+Router0(config)#interface FastEthernet0/1
+Router0(config-if)#no ip ospf cost 74
+Router0(config-if)#exit
+Router0(config)#router ospf 100
+Router0(config-router)#no auto-cost reference-bandwidth 422
+% OSPF: Reference bandwidth is changed. 
+        Please ensure reference bandwidth is consistent across all routers.
+Router0(config-router)#no default-information originate  always  metric-type 2
+Router0(config-router)#no default-metric 42
+Router0(config-router)#no redistribute static  subnets
+Router0(config-router)#exit
+Router0(config)#router bgp 1
+Router0(config-router)#no bgp always-compare-med
+Router0(config-router)#no bgp bestpath compare-routerid
+Router0(config-router)# bgp client-to-client reflection
+Router0(config-router)#no redistribute connected  route-map map0
+Router0(config-router)#no synchronization
+Router0(config-router)#no neighbor 188.19.105.2 route-map map1 in
+Router0(config-router)#no neighbor 181.236.228.2 default-originate
+Router0(config-router)#no neighbor 181.236.228.2 route-reflector-client
+% Invalid command. Not an internal neighbor
+Router0(config-router)#no neighbor 188.19.105.2 route-reflector-client
+% Invalid command. Not an internal neighbor
+Router0(config-router)#no neighbor 181.236.228.2 weight 35237
+Router0(config-router)#no neighbor 188.19.105.2 weight 19265
+Router0(config-router)#exit
+Router0(config)#no route-map map0
+Router0(config)#no route-map map1
+Router0(config)#ip prefix-list list0 seq 10  deny  159.204.194.0/26 ge 27 le 32
+Router0(config)#ip prefix-list list0 seq 9  deny  216.0.0.0/7 le 23
+Router0(config)#ip prefix-list list1 seq 78  permit  128.0.0.0/1 le 16
+Router0(config)#ip prefix-list list1 seq 32  permit  159.204.194.0/24 le 32
+Router0(config)#ip prefix-list list1 seq 53  permit  174.208.224.0/19
+Router0(config)#ip prefix-list list1 seq 92  permit  197.212.160.0/21 le 30
+Router0(config)#ip prefix-list list1 seq 82  permit  128.0.0.0/1 ge 8 le 11
+Router0(config)# route-map map2  permit  98
+Router0(config-route-map)# set origin igp
+Router0(config-route-map)# route-map map2  deny  63
+Router0(config-route-map)# match ip address prefix-list list2
+Router0(config-route-map)# route-map map2  deny  16
+Router0(config-route-map)# match as-path 134
+Router0(config-route-map)# match ip address prefix-list list3
+Router0(config-route-map)# set community local-as
+Router0(config-route-map)# set comm-list 94 delete
+Router0(config-route-map)# set as-path prepend 526
+Router0(config-route-map)# set origin igp
+Router0(config-route-map)#end
+Router0#
+
+
+Router2
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router2(config)#interface FastEthernet0/0
+Router2(config-if)# ip ospf priority 90
+Router2(config-if)#exit
+Router2(config)#router ospf 100
+Router2(config-router)# default-information originate  metric 47
+Router2(config-router)#exit
+Router2(config)#router bgp 3
+Router2(config-router)# bgp bestpath compare-routerid
+Router2(config-router)# bgp bestpath med confed  missing-as-worst
+Router2(config-router)# bgp deterministic-med
+Router2(config-router)# auto-summary
+Router2(config-router)# bgp dampening
+Router2(config-router)# redistribute connected  route-map map2
+Router2(config-router)# redistribute static  route-map map3
+Router2(config-router)# synchronization
+Router2(config-router)# table-map map4
+Router2(config-router)# neighbor 188.19.105.1 update-source FastEthernet0/1
+Router2(config-router)# neighbor 197.108.167.1 update-source FastEthernet0/1
+Router2(config-router)# neighbor 197.108.167.1 capability orf prefix-list  both
+Router2(config-router)# neighbor 197.108.167.1 route-reflector-client
+% Invalid command. Not an internal neighbor
+Router2(config-router)#exit
+Router2(config)#interface FastEthernet0/1
+Router2(config-if)#no ip ospf priority
+Router2(config-if)#exit
+Router2(config)#router ospf 100
+Router2(config-router)#no area 0 range 159.204.194.0 255.255.255.224
+Router2(config-router)#compatible rfc1583
+Router2(config-router)#no default-metric 18
+Router2(config-router)#no distance 122
+Router2(config-router)#no redistribute bgp 3 subnets
+Router2(config-router)#exit
+Router2(config)#router bgp 3
+Router2(config-router)#no bgp always-compare-med
+Router2(config-router)#no neighbor 188.19.105.1 maximum-prefix 7063
+Router2(config-router)#no neighbor 197.108.167.1 maximum-prefix 54
+Router2(config-router)#no neighbor 197.108.167.1 route-map map1 out
+Router2(config-router)#no neighbor 188.19.105.1 route-reflector-client
+% Invalid command. Not an internal neighbor
+Router2(config-router)#exit
+Router2(config)#no route-map map1
+Router2(config)#no ip route 159.192.0.0 255.224.0.0 FastEthernet0/1
+Router2(config)#ip prefix-list list0 seq 47  permit  174.0.0.0/14 le 21
+Router2(config)#ip prefix-list list0 seq 32  permit  176.0.0.0/12 le 18
+Router2(config)#ip prefix-list list0 seq 29  permit  174.208.224.0/19 ge 28 le 32
+Router2(config)#ip prefix-list list0 seq 43  permit  192.0.0.0/2 ge 29
+Router2(config)# route-map map2  permit  50
+Router2(config-route-map)# match as-path 98
+Router2(config-route-map)# match ip address prefix-list list1
+Router2(config-route-map)# set origin egp 743
+Router2(config-route-map)# set metric 673
+Router2(config-route-map)# set community no-export
+Router2(config-route-map)# set ip next-hop 195.57.118.62
+Router2(config-route-map)# route-map map2  permit  59
+Router2(config-route-map)# match as-path 177
+Router2(config-route-map)# set community local-as
+Router2(config-route-map)# set ip next-hop 159.204.194.5
+Router2(config-route-map)# set origin incomplete
+Router2(config-route-map)# set as-path prepend 109
+Router2(config-route-map)# set weight 496
+Router2(config-route-map)# route-map map3  deny  45
+Router2(config-route-map)# match community 233
+Router2(config-route-map)# match ip address prefix-list list2
+Router2(config-route-map)# route-map map3  deny  19
+Router2(config-route-map)# match community 149
+Router2(config-route-map)# match as-path 155
+Router2(config-route-map)# set comm-list 137 delete
+Router2(config-route-map)# set weight 997
+Router2(config-route-map)# set local-preference 662
+Router2(config-route-map)# route-map map3  permit  4
+Router2(config-route-map)# match ip address prefix-list list3
+Router2(config-route-map)# match community 444
+Router2(config-route-map)# set ip next-hop 176.0.0.0
+Router2(config-route-map)# set community local-as additive
+Router2(config-route-map)# set local-preference 9
+Router2(config-route-map)# route-map map4  permit  66
+Router2(config-route-map)# match ip address prefix-list list4
+Router2(config-route-map)# match community 23
+Router2(config-route-map)# route-map map4  permit  11
+Router2(config-route-map)# set as-path prepend 846
+Router2(config-route-map)# set comm-list 165 delete
+Router2(config-route-map)# set weight 575
+Router2(config-route-map)# set origin egp 358
+Router2(config-route-map)# route-map map4  deny  1
+Router2(config-route-map)# set metric 808
+Router2(config-route-map)# route-map map4  deny  69
+Router2(config-route-map)# match ip address prefix-list list5
+Router2(config-route-map)# set local-preference 625
+Router2(config-route-map)# set comm-list 245 delete
+Router2(config-route-map)# set ip next-hop 174.242.93.99
+Router2(config-route-map)#end
+Router2#
+
+
+Router1
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router1(config)#interface FastEthernet0/0
+Router1(config-if)# ip ospf cost 57
+Router1(config-if)# ip ospf priority 22
+Router1(config-if)#exit
+Router1(config)#interface FastEthernet0/1
+Router1(config-if)# ip ospf cost 55
+Router1(config-if)# ip ospf priority 162
+Router1(config-if)#exit
+Router1(config)#router ospf 100
+Router1(config-router)# auto-cost reference-bandwidth 37
+% OSPF: Reference bandwidth is changed. 
+        Please ensure reference bandwidth is consistent across all routers.
+Router1(config-router)# no compatible rfc1583
+Router1(config-router)# distance 210
+Router1(config-router)# max-metric router-lsa  external-lsa 5515363 include-stub  summary-lsa 3188918
+Router1(config-router)#exit
+Router1(config)#router bgp 2
+Router1(config-router)# bgp bestpath med confed  missing-as-worst
+Router1(config-router)# bgp deterministic-med
+Router1(config-router)# neighbor 197.108.167.2 update-source FastEthernet0/0
+Router1(config-router)# neighbor 181.236.228.1 route-map map3 in
+Router1(config-router)# neighbor 197.108.167.2 route-map map4 in
+Router1(config-router)# neighbor 197.108.167.2 capability orf prefix-list  send
+Router1(config-router)# neighbor 181.236.228.1 route-reflector-client
+% Invalid command. Not an internal neighbor
+Router1(config-router)# neighbor 181.236.228.1 weight 63004
+Router1(config-router)#exit
+Router1(config)#ip route 139.170.86.0 255.255.255.254 FastEthernet0/1
+Router1(config)#router ospf 100
+Router1(config-router)#no area 0 range 159.204.194.0 255.255.255.0
+Router1(config-router)#no default-information originate  always  metric 95
+Router1(config-router)#no default-metric 43
+Router1(config-router)#exit
+Router1(config)#router bgp 2
+Router1(config-router)# bgp client-to-client reflection
+Router1(config-router)#no bgp default local-preference 610
+Router1(config-router)#no bgp maxas-limit
+Router1(config-router)#no bgp dampening  route-map map0
+Router1(config-router)#no distance bgp
+Router1(config-router)#no synchronization
+Router1(config-router)#no neighbor 181.236.228.1 default-originate
+Router1(config-router)#no neighbor 197.108.167.2 default-originate  route-map map2
+Router1(config-router)#exit
+Router1(config)#no route-map map0
+Router1(config)#no route-map map2
+Router1(config)#ip prefix-list list0 seq 14  permit  159.204.194.0/26 ge 31
+Router1(config)#ip prefix-list list0 seq 77  permit  139.170.86.0/31 ge 32 le 32
+Router1(config)#ip prefix-list list0 seq 1  deny  128.0.0.0/1 ge 5
+Router1(config)#ip prefix-list list0 seq 13  permit  159.204.194.0/26 ge 32
+Router1(config)#ip prefix-list list0 seq 63  permit  176.0.0.0/31 ge 32 le 32
+Router1(config)#ip prefix-list list1 seq 90  permit  159.204.194.0/26 ge 27
+Router1(config)#ip prefix-list list2 seq 27  permit  139.170.86.0/24 ge 25
+Router1(config)#ip prefix-list list2 seq 72  permit  128.0.0.0/2 ge 22 le 28
+Router1(config)#ip prefix-list list2 seq 32  permit  159.204.194.0/24
+Router1(config)# route-map map3  permit  63
+Router1(config-route-map)# set local-preference 311
+Router1(config-route-map)# route-map map3  deny  17
+Router1(config-route-map)# match as-path 127
+Router1(config-route-map)# match ip address prefix-list list3
+Router1(config-route-map)# set origin incomplete
+Router1(config-route-map)# set community no-export additive
+Router1(config-route-map)# set comm-list 494 delete
+Router1(config-route-map)# set local-preference 217
+Router1(config-route-map)# set metric -811
+Router1(config-route-map)# route-map map3  deny  21
+Router1(config-route-map)# match community 307
+Router1(config-route-map)# match as-path 178
+Router1(config-route-map)# set weight 178
+Router1(config-route-map)# set as-path prepend 64
+Router1(config-route-map)# route-map map3  deny  30
+Router1(config-route-map)# match as-path 11
+Router1(config-route-map)# match community 458
+Router1(config-route-map)# set metric -475
+Router1(config-route-map)# set origin igp
+Router1(config-route-map)# set ip next-hop 149.118.8.10
+Router1(config-route-map)# set as-path prepend 884
+Router1(config-route-map)# set weight 572
+Router1(config-route-map)# route-map map3  permit  68
+Router1(config-route-map)# set metric 744
+Router1(config-route-map)# route-map map4  permit  28
+Router1(config-route-map)# match community 264
+Router1(config-route-map)# match ip address prefix-list list4
+Router1(config-route-map)# set comm-list 454 delete
+Router1(config-route-map)# set metric 941
+Router1(config-route-map)# set weight 297
+Router1(config-route-map)# set local-preference 984
+Router1(config-route-map)#end
+Router1#
+
+

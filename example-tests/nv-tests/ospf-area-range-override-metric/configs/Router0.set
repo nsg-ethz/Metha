@@ -1,0 +1,25 @@
+set version 18.2R1.9
+set system root-authentication encrypted-password "$6$5e4bMlUm$PbzLjZviqrGsMEXwmt.URYuW/O6Cy4leZ.c31f2/AIxVuAP1FbuycJJuRq7vCKhO5lURlWPOyXLL91ZX0n2B7."
+set system host-name Router0
+set system syslog user * any emergency
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set system processes dhcp-service traceoptions file dhcp_logfile
+set system processes dhcp-service traceoptions file size 10m
+set system processes dhcp-service traceoptions level all
+set system processes dhcp-service traceoptions flag packet
+set interfaces ge-0/0/0 unit 0 family inet address 182.42.0.1/17
+set interfaces ge-0/0/1 unit 0 family inet address 139.162.173.1/24
+set interfaces fxp0 unit 0 family inet dhcp vendor-id Juniper-vmx-VM5F2BEC4B85
+set protocols ospf area 0.0.0.0 area-range 182.42.0.0/17 override-metric 200
+set protocols ospf area 0.0.0.0 interface ge-0/0/0.0
+set protocols ospf area 0.0.0.1 interface ge-0/0/1.0
+set policy-options policy-statement send-bgp term 1 from protocol bgp
+set policy-options policy-statement send-bgp term 1 then accept
+set policy-options policy-statement send-direct term 1 from protocol direct
+set policy-options policy-statement send-direct term 1 then accept
+set policy-options policy-statement send-ospf term 1 from protocol ospf
+set policy-options policy-statement send-ospf term 1 then accept
+set policy-options policy-statement send-static term 1 from protocol static
+set policy-options policy-statement send-static term 1 then accept

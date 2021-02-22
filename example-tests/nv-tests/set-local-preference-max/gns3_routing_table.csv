@@ -1,0 +1,2 @@
+Node,VRF,Network,Next_Hop,Next_Hop_IP,Next_Hop_Interface,Protocol,Metric,Admin_Distance,Tag
+Router1,default,148.11.52.0/22,,AUTO/NONE(-1l),FastEthernet0/0,connected,0,0,

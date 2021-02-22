@@ -1,0 +1,10 @@
+{
+    "nodes": [
+        {
+            "name": "Router0",
+            "router_type": "JuniperVMX",
+            "config": "/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/from-local-preference-max/configs/Router0.set"
+        }
+    ],
+    "links": []
+}

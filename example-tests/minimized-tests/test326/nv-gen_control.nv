@@ -1,0 +1,221 @@
+type prefix = (int, int6) (* IP prefix; tuple of (address, length) *)
+type ospfType = {ospfAd: int8; weight: int16; areaType:int2; areaId: int; ospfNextHop: option[tedge];}
+type bgpType = {bgpAd: int8; lp: int; aslen: int; med:int; comms:set[int]; bgpNextHop: option[tedge];}
+type rib = {
+    connected:option[int8]; (* Just track administrative distance *)
+    static:option[int8]; (* Just track administrative distance *)
+    ospf:option[ospfType];
+    bgp:option[bgpType];
+    selected:option[int2]; (* Which protocol has the best route *) }
+type attribute = dict[prefix, rib]
+
+(* Definitions for the "best" field *)
+let p_CONNECTED = 0u2
+let p_STATIC = 1u2
+let p_OSPF = 2u2
+let p_BGP = 3u2
+
+(** Useful helper definitions **)
+
+let ospfIntraArea = 0u2
+let ospfInterArea = 1u2
+let ospfE1 = 2u2
+let ospfE2 = 3u2
+
+(* Check if the selected protocol is x *)
+let isProtocol fib x =
+  match fib with
+  | None -> false
+  | Some y -> x = y
+
+let flipEdge e = 
+  match e with  | a~b -> toEdge b a
+
+let getSourceNode e = 
+  match e with  | a~b -> a
+
+let min x y = x <u8 y
+
+(* Compute the better of x and y according to f *)
+(* Return a boolean (true for x, false for y) for efficiency reasons *)
+let pickOption f x y =
+  match (x,y) with
+  | (None, _) -> false  | (_, None) -> true
+  | (Some a, Some b) -> f a b
+
+let pickMinOption = pickOption min
+
+(* OSPF Route ranking: first compare areas, then weights *)
+let betterOspf o1 o2 =
+  if o1.areaType <u2 o2.areaType then true
+  else if o2.areaType <u2 o1.areaType then false
+  else if o1.weight <=u16 o2.weight then true else false
+
+(* BGP Route ranking: first compare local pref, then path length, then MED *)
+let betterBgp b1 b2 =
+  if b1.lp > b2.lp then true
+  else if b2.lp > b1.lp then false
+  else if b1.aslen < b2.aslen then true
+  else if b2.aslen < b1.aslen then false
+  else if b1.med <= b2.med then true else false
+
+(* Determine which of the four protocols has the best route by comparing their ADs *)
+let best c s o b =
+  match (c,s,o,b) with
+  (* If no protocol has a route, then we have no route at all *)
+  | (None,None,None,None) -> None
+  | _ -> 
+      (* Otherwise, get administrative distances for osfp and bgp... *)
+      let o = match o with | None -> None | Some o -> Some o.ospfAd in
+      let b = match b with | None -> None | Some b -> Some b.bgpAd in
+      (* ...and figure out which of the protocols has the lowest AD *)
+      let (x,p1) = if pickMinOption c s then (c,p_CONNECTED) else (s,p_STATIC) in
+      let (y,p2) = if pickMinOption o b then (o,p_OSPF) else (b,p_BGP) in
+      Some (if pickMinOption x y then p1 else p2)
+
+(* Compute the best route for each protocol individually, then select the best one *)
+let mergeValues x y =
+  let c = if (pickMinOption x.connected y.connected) then x.connected else y.connected in
+  let s = if (pickMinOption x.static y.static) then x.static else y.static in
+  let o = if (pickOption betterOspf x.ospf y.ospf) then x.ospf else y.ospf in
+  let b = if (pickOption betterBgp x.bgp y.bgp) then x.bgp else y.bgp in
+  { connected = c;
+    static = s;
+    ospf = o;
+    bgp = b;
+    selected = best c s o b}
+
+let merge node x y = combine mergeValues x y
+
+let init node =
+  let d = createDict ({connected=None; static=None; ospf=None; bgp=None; selected=None;}) in
+  match node with
+  | 0n -> 
+    let c = None in
+    let s = None in
+    let o = None in
+    let b = Some {bgpAd=20u8; lp=100; aslen=0; med=80; comms={}; bgpNextHop=None} in
+    let fib = best c s o b in
+    let route = {connected=c; static=s; ospf=o; bgp=b; selected=fib;} in
+    let d = d[128.0.0.0/1 := route] in
+    let d = d[188.169.34.128/27 := route] in
+    let d = d[141.0.0.0/8 := route] in
+    let c = Some 0u8 in
+    let s = None in
+    let o = Some {ospfAd=110u8; weight=0u16; areaType=ospfIntraArea; areaId=0; ospfNextHop=None} in
+    let b = None in
+    let fib = best c s o b in
+    let route = {connected=c; static=s; ospf=o; bgp=b; selected=fib;} in
+    let d = d[174.147.240.0/21 := route] in
+    let c = Some 0u8 in
+    let s = None in
+    let o = Some {ospfAd=110u8; weight=0u16; areaType=ospfIntraArea; areaId=1; ospfNextHop=None} in
+    let b = None in
+    let fib = best c s o b in
+    let route = {connected=c; static=s; ospf=o; bgp=b; selected=fib;} in
+    let d = d[134.31.0.0/17 := route] in
+      d
+  | 1n -> 
+    let c = None in
+    let s = None in
+    let o = None in
+    let b = Some {bgpAd=20u8; lp=100; aslen=0; med=80; comms={}; bgpNextHop=None} in
+    let fib = best c s o b in
+    let route = {connected=c; static=s; ospf=o; bgp=b; selected=fib;} in
+    let d = d[128.0.0.0/1 := route] in
+    let d = d[188.169.34.128/27 := route] in
+    let d = d[141.0.0.0/8 := route] in
+    let c = Some 0u8 in
+    let s = None in
+    let o = Some {ospfAd=110u8; weight=0u16; areaType=ospfIntraArea; areaId=1; ospfNextHop=None} in
+    let b = None in
+    let fib = best c s o b in
+    let route = {connected=c; static=s; ospf=o; bgp=b; selected=fib;} in
+    let d = d[134.31.0.0/17 := route] in
+    let d = d[131.157.254.248/29 := route] in
+      d
+  | 2n -> 
+    let c = None in
+    let s = None in
+    let o = None in
+    let b = Some {bgpAd=20u8; lp=100; aslen=0; med=80; comms={}; bgpNextHop=None} in
+    let fib = best c s o b in
+    let route = {connected=c; static=s; ospf=o; bgp=b; selected=fib;} in
+    let d = d[128.0.0.0/1 := route] in
+    let d = d[188.169.34.128/27 := route] in
+    let d = d[141.0.0.0/8 := route] in
+    let c = Some 0u8 in
+    let s = None in
+    let o = None in
+    let b = None in
+    let fib = best c s o b in
+    let route = {connected=c; static=s; ospf=o; bgp=b; selected=fib;} in
+    let d = d[131.157.254.248/29 := route] in
+    let c = Some 0u8 in
+    let s = None in
+    let o = Some {ospfAd=110u8; weight=0u16; areaType=ospfIntraArea; areaId=0; ospfNextHop=None} in
+    let b = None in
+    let fib = best c s o b in
+    let route = {connected=c; static=s; ospf=o; bgp=b; selected=fib;} in
+    let d = d[174.147.240.0/21 := route] in
+      d
+  | _ -> d
+
+ let transferOspf edge o =
+   match o with
+   | None -> None
+   | Some o -> (
+     match edge with
+     | (0~2) -> Some {ospfAd=o.ospfAd; weight=o.weight +u16 1u16; areaType=if !(o.areaId = 0) then ospfInterArea else o.areaType; areaId=0; ospfNextHop=flipEdge edge}
+     | (1~2) -> Some {ospfAd=o.ospfAd; weight=o.weight +u16 1u16; areaType=if !(o.areaId = 1) then ospfInterArea else o.areaType; areaId=1; ospfNextHop=flipEdge edge}
+     | (0~1) -> Some {ospfAd=o.ospfAd; weight=o.weight +u16 1u16; areaType=if !(o.areaId = 1) then ospfInterArea else o.areaType; areaId=1; ospfNextHop=flipEdge edge}
+     | (2~0) -> Some {ospfAd=o.ospfAd; weight=o.weight +u16 1u16; areaType=if !(o.areaId = 0) then ospfInterArea else o.areaType; areaId=0; ospfNextHop=flipEdge edge}
+     | (1~0) -> Some {ospfAd=o.ospfAd; weight=o.weight +u16 1u16; areaType=if !(o.areaId = 1) then ospfInterArea else o.areaType; areaId=1; ospfNextHop=flipEdge edge}
+     | _ -> None)
+
+(* Bgp import policy for a single route *)
+(* Import policies typically set local pref, apply import filters, etc *)
+let bgpRouteImport policy x =
+  match x.bgp with
+  | None -> {x with bgp=None}
+  | Some b ->
+    {x with bgp=policy x.selected b}
+
+(* Bgp export policy for a single route.
+ policy: the export routing policy
+ redistribute: redistribution into BGP x: the route (single RIB entry) over which this operates *)
+let bgpRouteExport e policy redistribute x =
+  match redistribute x with
+  | None -> {x with bgp=None}
+  | Some b ->
+    let b = {b with bgpNextHop = flipEdge e} in
+    {x with bgp=policy x.selected b}
+
+(* Each bgpExportPol applies actions to zero or more prefix ranges.
+   For each range, we do a mapIf with a predicate specifying the range,
+   then apply whatever logic we're configured to apply for that range.
+   We then apply a final mapIf for all prefixes not covered so far. If
+   There's only one policy for all prefixes, we don't do a mapIf at all. *)
+
+ let transferBgp e x = map (fun v -> {v with bgp = None}) x
+
+let trans edge x = 
+  let x = transferBgp edge x in
+  let x = map (fun x -> {x with ospf=transferOspf edge x.ospf; connected=None; static=None}) x in
+  x
+
+let sol = solution {init=init; trans=trans; merge=merge}
+
+let nodes = 3
+
+let edges = {
+  0-2; (*router0,FastEthernet0/0 --> router1,FastEthernet0/0*)
+  2-1; (*router1,FastEthernet0/1 --> router2,FastEthernet0/1*)
+  1-2; (*router2,FastEthernet0/1 --> router1,FastEthernet0/1*)
+  0-1; (*router0,FastEthernet0/1 --> router2,FastEthernet0/0*)
+  2-0; (*router1,FastEthernet0/0 --> router0,FastEthernet0/0*)
+  1-0; (*router2,FastEthernet0/0 --> router0,FastEthernet0/1*)
+}
+
+(*
+{router0=0, router2=1, router1=2}*)

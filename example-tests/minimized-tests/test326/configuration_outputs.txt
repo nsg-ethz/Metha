@@ -1,0 +1,27 @@
+Router1
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router1(config)#end
+Router1#
+
+
+Router0
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#router bgp 1
+Router0(config-router)# aggregate-address 128.0.0.0 128.0.0.0
+Router0(config-router)#exit
+Router0(config)#end
+Router0#
+
+
+Router2
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router2(config)#router bgp 1
+Router2(config-router)# aggregate-address 136.0.0.0 255.240.0.0
+Router2(config-router)#exit
+Router2(config)#end
+Router2#
+
+

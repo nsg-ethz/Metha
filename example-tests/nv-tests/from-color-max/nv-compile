@@ -1,0 +1,2 @@
+init-snapshot /run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/from-color-max/ nv-snapshot
+get compile doData="false", file="/run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/from-color-max/nv-gen", doNodeFaults="false", singlePrefix="false", doNextHop="true"

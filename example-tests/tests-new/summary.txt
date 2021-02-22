@@ -1,0 +1,116 @@
+test0
+
+Router0:
+129: network 192.0.0.0 31.255.255.255 area 0
+156: aggregate-address 192.0.0.0 224.0.0.0 summary-only
+
+Router1:
+120: max-metric router-lsa summary-lsa 11546870
+123: area 0 range 192.0.0.0 224.0.0.0 not-advertise cost 934
+124: redistribute static
+126: network 192.0.0.0 31.255.255.255 area 0
+127: default-metric 94
+
+Router2:
+122: max-metric router-lsa include-stub summary-lsa 15553812 external-lsa 11951459
+126: default-information originate always metric 24
+127: default-metric 83
+128: distance 160
+
+
+test1
+
+-ospf
+default-information originate
+distance
+max-metric
+
+test2
+
+-ospf
+default-information originate
+distance
+
+test3
+
+-ospf
+max-metric
+distance
+redistribute static
+
+
+test4
+
+-ospf
+max-metric
+redistribute connected
+redistribute static
+redistribute bgp
+default-information originate
+distance
+
+-bgp
+redistribute connected
+aggregate-address
+
+test10
+
+-ospf
+default-information originate
+distance
+
+-bgp
+neighbor default-originate
+
+-static
+ip route 128.0.0.0 128.0.0.0 FastEthernet0/1
+
+test11
+
+-ospf
+redistribute static
+redistribute bgp
+distance
+max-metric
+
+-bgp
+redistribute static
+aggregate-address
+
+test12
+
+-ospf
+max-metric
+default-information originate
+distance
+
+test13
+
+-ospf
+max-metric
+redistribute connected
+redistribute static
+redistribute bgp
+distance
+
+-bgp
+redistribute connected
+redistribute static
+neighbor default-originate
+
+-static
+ip route 128.0.0.0 128.0.0.0 FastEthernet0/0
+
+test14
+
+-ospf
+distance
+
+-bgp
+redistribute connected
+neighbor 188.19.105.2 default-originate route-map map3
+distance bgp 147 180 12
+aggregate-address 197.212.160.0 255.255.248.0 as-set summary-only
+neighbor route-map map4 in
+neighbor default-originate
+auto-summary

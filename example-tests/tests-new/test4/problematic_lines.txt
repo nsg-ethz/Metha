@@ -1,0 +1,22 @@
+Router0:
+122: max-metric router-lsa summary-lsa
+128: redistribute connected
+131: default-information originate
+132: distance 194
+162: aggregate-address 192.0.0.0 192.0.0.0 summary-only
+
+Router1:
+121: max-metric router-lsa summary-lsa
+125: redistribute connected
+126: redistribute bgp 1
+129: default-information originate always metric 77
+131: distance 132
+144: redistribute connected
+
+Router2:
+119: max-metric router-lsa summary-lsa external-lsa
+122: redistribute connected
+123: redistribute static
+124: default-information originate always metric 20
+139: redistribute connected
+151: aggregate-address 132.0.0.0 254.0.0.0 summary-only

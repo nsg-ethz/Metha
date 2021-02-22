@@ -1,0 +1,10 @@
+datacompy==0.6.0
+numpy==1.18.2
+pandas==0.25.3
+pybatfish==2020.2.20.414
+PyYAML==5.3.1
+
+netmiko~=3.1.0
+pexpect~=4.8.0
+junos-eznc~=2.2.1
+lxml~=4.5.2

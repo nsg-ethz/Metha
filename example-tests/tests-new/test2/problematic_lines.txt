@@ -1,0 +1,10 @@
+Router0:
+129: default-information originate always
+130: distance 194
+
+Router1:
+128: default-information originate
+129: distance 132
+
+Router2:
+128: default-information originate always metric 24

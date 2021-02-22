@@ -1,0 +1,45 @@
+net add node 177.188.8.166
+net add node 151.162.62.109
+net add node 135.165.75.221
+net add link-ptp 177.188.8.166 212.116.128.1/19 151.162.62.109 212.116.128.2/19
+net add link-ptp 177.188.8.166 133.176.0.1/16 135.165.75.221 133.176.0.2/16
+net add domain 1 igp
+net add domain 2 igp
+net add domain 3 igp
+net node 177.188.8.166 domain 1
+net node 151.162.62.109 domain 2
+net node 135.165.75.221 domain 3
+net node 177.188.8.166 route add --oif=212.116.128.1/19 212.116.128.2/32 0
+net node 177.188.8.166 route add --oif=133.176.0.1/16 133.176.0.2/32 0
+net node 151.162.62.109 route add --oif=212.116.128.2/19 212.116.128.1/32 0
+net node 135.165.75.221 route add --oif=133.176.0.2/16 133.176.0.1/32 0
+bgp add router 1 177.188.8.166
+bgp add router 2 151.162.62.109
+bgp add router 3 135.165.75.221
+bgp router 177.188.8.166
+ add peer 2 212.116.128.2
+ peer 212.116.128.2 up
+ exit
+bgp router 177.188.8.166
+ add peer 3 133.176.0.2
+ peer 133.176.0.2 up
+ exit
+bgp router 151.162.62.109
+ add peer 1 212.116.128.1
+ peer 212.116.128.1 up
+ exit
+bgp router 135.165.75.221
+ add peer 1 133.176.0.1
+ peer 133.176.0.1 up
+ exit
+bgp router 177.188.8.166 add network 212.116.128.0/19
+bgp router 177.188.8.166 add network 133.176.0.0/16
+bgp router 177.188.8.166 add network 212.116.128.0/19
+bgp router 135.165.75.221 add network 135.165.75.221/32
+bgp router 135.165.75.221 add network 135.165.75.221/32
+
+
+net domain 1 compute
+net domain 2 compute
+net domain 3 compute
+sim run

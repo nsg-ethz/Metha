@@ -1,0 +1,29 @@
+Processing /run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/bgp-maximum-prefix/nv-gen_control.nv
+Interpreted simulation took: 0.001696 secs to complete
+No counterexamples found
+
+Printing solutions for sol~0
+Node 0
+---------
+{ (3444995816u32,32u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~1); comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2847277168u32,28u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(3636211776u32,32u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2283622400u32,23u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~1); comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2853486592u32,18u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; } }
+
+Node 1
+---------
+{ (3444995816u32,32u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; comms= {  }; lp= 100u32; med= 80u32; }); connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2283622400u32,23u6) |-> {  bgp= Some({  aslen= 2u32; bgpAd= 20u8; bgpNextHop= Some(1~0); comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(1u2); static= Some(1u8); }
+(2853486592u32,18u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; } }
+
+Node 2
+---------
+{ (2640890445u32,32u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(3444995816u32,32u6) |-> {  bgp= Some({  aslen= 2u32; bgpAd= 20u8; bgpNextHop= Some(2~0); comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2847277168u32,28u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2283622400u32,23u6) |-> {  bgp= Some({  aslen= 2u32; bgpAd= 20u8; bgpNextHop= Some(2~0); comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; } }
+
+Success: No assertions provided, so none failed
+
+Entire Program took: 0.006771 secs to complete

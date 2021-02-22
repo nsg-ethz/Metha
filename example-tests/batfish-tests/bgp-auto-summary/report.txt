@@ -1,0 +1,45 @@
+DataComPy Comparison
+--------------------
+
+DataFrame Summary
+-----------------
+
+  DataFrame  Columns  Rows
+0   Batfish        8    11
+1      GNS3        8    13
+
+Column Summary
+--------------
+
+Number of columns in common: 8
+Number of columns in Batfish but not in GNS3: 0
+Number of columns in GNS3 but not in Batfish: 0
+
+Row Summary
+-----------
+
+Matched on: node, network, next_hop, next_hop_ip, next_hop_interface, protocol, metric, admin_distance
+Any duplicates on match values: No
+Absolute Tolerance: 0
+Relative Tolerance: 0
+Number of rows in common: 11
+Number of rows in Batfish but not in GNS3: 0
+Number of rows in GNS3 but not in Batfish: 2
+
+Number of rows with some compared columns unequal: 0
+Number of rows with all compared columns equal: 11
+
+Column Comparison
+-----------------
+
+Number of columns compared with some values unequal: 0
+Number of columns compared with all values equal: 8
+Total number of values which compare unequal: 0
+
+Sample Rows Only in GNS3 (First 10 Columns)
+-------------------------------------------
+
+       node           network next_hop      next_hop_ip next_hop_interface protocol  metric  admin_distance
+12  router2  196.237.202.0/24  router0    195.214.224.1            dynamic      bgp     0.0            20.0
+11  router1  196.237.202.0/24  router0  196.237.202.250            dynamic      bgp     0.0            20.0
+

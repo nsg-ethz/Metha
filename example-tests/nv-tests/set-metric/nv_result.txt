@@ -1,0 +1,19 @@
+Processing /run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/test128/nv-gen_control.nv
+Interpreted simulation took: 0.000825 secs to complete
+No counterexamples found
+
+Printing solutions for sol~0
+Node 0
+---------
+{ (2407247424u32,32u6) |-> {  bgp= Some({  aslen= 294967297u32; bgpAd= 20u8; bgpNextHop= Some(0~1); comms= {  }; lp= 100u32; med= 80u32; }); connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2870427648u32,21u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; } }
+
+Node 1
+---------
+{ (3000795087u32,32u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2407247424u32,32u6) |-> {  bgp= Some({  aslen= 294967296u32; bgpAd= 20u8; bgpNextHop= Some(1~0); comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2870427648u32,21u6) |-> {  bgp= Some({  aslen= 294967296u32; bgpAd= 20u8; bgpNextHop= Some(1~0); comms= {  }; lp= 100u32; med= 80u32; }); connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; } }
+
+Success: No assertions provided, so none failed
+
+Entire Program took: 0.004391 secs to complete

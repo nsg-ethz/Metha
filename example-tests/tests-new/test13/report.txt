@@ -1,0 +1,58 @@
+DataComPy Comparison
+--------------------
+
+DataFrame Summary
+-----------------
+
+  DataFrame  Columns  Rows
+0   Batfish        8    14
+1      GNS3        8    16
+
+Column Summary
+--------------
+
+Number of columns in common: 8
+Number of columns in Batfish but not in GNS3: 0
+Number of columns in GNS3 but not in Batfish: 0
+
+Row Summary
+-----------
+
+Matched on: node, network, next_hop, next_hop_ip, next_hop_interface, protocol, metric, admin_distance
+Any duplicates on match values: No
+Absolute Tolerance: 0
+Relative Tolerance: 0
+Number of rows in common: 10
+Number of rows in Batfish but not in GNS3: 4
+Number of rows in GNS3 but not in Batfish: 6
+
+Number of rows with some compared columns unequal: 0
+Number of rows with all compared columns equal: 10
+
+Column Comparison
+-----------------
+
+Number of columns compared with some values unequal: 0
+Number of columns compared with all values equal: 8
+Total number of values which compare unequal: 0
+
+Sample Rows Only in Batfish (First 10 Columns)
+----------------------------------------------
+
+       node           network next_hop    next_hop_ip next_hop_interface protocol   metric  admin_distance
+2   router1         0.0.0.0/0     None  181.236.228.1            dynamic      bgp      0.0            20.0
+11  router1   188.19.105.0/27     None  181.236.228.1            dynamic      bgp      0.0            20.0
+3   router0  197.108.167.0/24  router2   188.19.105.2            dynamic     ospf  65536.0           110.0
+12  router2         0.0.0.0/0     None   188.19.105.1            dynamic      bgp      0.0            20.0
+
+Sample Rows Only in GNS3 (First 10 Columns)
+-------------------------------------------
+
+       node           network next_hop    next_hop_ip next_hop_interface protocol      metric  admin_distance
+15  router0    181.236.0.0/16     None  181.236.228.2            dynamic      bgp        84.0            20.0
+14  router0  197.108.167.0/24     None  181.236.228.2            dynamic      bgp         0.0            20.0
+16  router1   188.19.105.0/27  router2  197.108.167.2            dynamic     ospf     65536.0            86.0
+18  router1         0.0.0.0/0  router2  197.108.167.2            dynamic   ospfE2  16711680.0            86.0
+19  router2    181.236.0.0/16     None   188.19.105.1            dynamic      bgp         0.0            20.0
+17  router1    181.236.0.0/16  router2  197.108.167.2            dynamic   ospfE2        84.0            86.0
+

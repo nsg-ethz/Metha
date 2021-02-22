@@ -1,0 +1,16 @@
+Router0:
+129: network 192.0.0.0 31.255.255.255 area 0
+156: aggregate-address 192.0.0.0 224.0.0.0 summary-only
+
+Router1:
+120: max-metric router-lsa summary-lsa 11546870
+123: area 0 range 192.0.0.0 224.0.0.0 not-advertise cost 934
+124: redistribute static
+126: network 192.0.0.0 31.255.255.255 area 0
+127: default-metric 94
+
+Router2:
+122: max-metric router-lsa include-stub summary-lsa 15553812 external-lsa 11951459
+126: default-information originate always metric 24
+127: default-metric 83
+128: distance 160

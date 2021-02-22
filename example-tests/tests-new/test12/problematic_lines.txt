@@ -1,0 +1,8 @@
+Router0:
+
+Router1:
+123: max-metric router-lsa include-stub summary-lsa 3188918 external-lsa 5515363
+
+Router2:
+131: default-information originate metric 47
+133: distance 173

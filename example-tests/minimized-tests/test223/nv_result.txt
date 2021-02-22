@@ -1,0 +1,47 @@
+Processing /run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/minimized-tests/test223/nv-gen_control.nv
+Interpreted simulation took: 0.009515 secs to complete
+No counterexamples found
+
+Printing solutions for sol~0
+Node 0
+---------
+{ (2735800048u32,30u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2473268016u32,28u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2716755808u32,27u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(3584579840u32,24u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~2); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2231284224u32,23u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~2); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3726428160u32,23u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~2); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2583236608u32,21u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3715366912u32,14u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3621781504u32,16u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~2); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3221225472u32,4u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(0~2); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; } }
+
+Node 1
+---------
+{ (2735800048u32,30u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2473268016u32,28u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2716755808u32,27u6) |-> {  bgp= Some({  aslen= 2u32; bgpAd= 20u8; bgpNextHop= Some(1~2); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(3584579840u32,24u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(1~2); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2231284224u32,23u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(1~2); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(3726428160u32,23u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(1~2); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2583236608u32,21u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3715366912u32,14u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3621781504u32,16u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(1~2); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3221225472u32,4u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(1~2); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; } }
+
+Node 2
+---------
+{ (2735800048u32,30u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(2~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2473268016u32,28u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(2~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2716755808u32,27u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(2~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3584579840u32,24u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(2231284224u32,23u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(2~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(3726428160u32,23u6) |-> {  bgp= Some({  aslen= 2u32; bgpAd= 20u8; bgpNextHop= Some(2~1); bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2583236608u32,21u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(2~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3715366912u32,14u6) |-> {  bgp= Some({  aslen= 1u32; bgpAd= 20u8; bgpNextHop= Some(2~1); bgpOrigin= 1n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3621781504u32,16u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; }
+(3221225472u32,4u6) |-> {  bgp= Some({  aslen= 0u32; bgpAd= 20u8; bgpNextHop= None; bgpOrigin= 2n; comms= {  }; lp= 100u32; med= 80u32; }); connected= None; ospf= None; selected= Some(3u2); static= None; } }
+
+Success: No assertions provided, so none failed
+
+Entire Program took: 0.021058 secs to complete

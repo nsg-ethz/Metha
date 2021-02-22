@@ -1,0 +1,12 @@
+Node,VRF,Network,Next_Hop,Next_Hop_IP,Next_Hop_Interface,Protocol,Metric,Admin_Distance,Tag
+Router0,default,178.46.114.99/32,Router1,AUTO/NONE(-1l),dynamic,bgp,80,20,
+Router0,default,155.80.55.216/32,Router2,AUTO/NONE(-1l),dynamic,bgp,80,20,
+Router0,default,208.240.139.232/32,,AUTO/NONE(-1l),dynamic,connected,0,0,
+Router0,default,147.60.36.224/27,,AUTO/NONE(-1l),dynamic,connected,0,0,
+Router0,default,141.184.128.0/17,,AUTO/NONE(-1l),dynamic,connected,0,0,
+Router2,default,178.46.114.99/32,Router0,AUTO/NONE(-1l),dynamic,bgp,80,20,
+Router2,default,155.80.55.216/32,,AUTO/NONE(-1l),dynamic,connected,0,0,
+Router2,default,141.184.128.0/17,,AUTO/NONE(-1l),dynamic,connected,0,0,
+Router1,default,178.46.114.99/32,,AUTO/NONE(-1l),dynamic,connected,0,0,
+Router1,default,155.80.55.216/32,Router0,AUTO/NONE(-1l),dynamic,bgp,80,20,
+Router1,default,147.60.36.224/27,,AUTO/NONE(-1l),dynamic,connected,0,0,

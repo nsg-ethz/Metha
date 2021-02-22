@@ -1,0 +1,45 @@
+DataComPy Comparison
+--------------------
+
+DataFrame Summary
+-----------------
+
+  DataFrame  Columns  Rows
+0       SUT        4    12
+1      GNS3        4    10
+
+Column Summary
+--------------
+
+Number of columns in common: 4
+Number of columns in SUT but not in GNS3: 0
+Number of columns in GNS3 but not in SUT: 0
+
+Row Summary
+-----------
+
+Matched on: node, network, next_hop, protocol
+Any duplicates on match values: No
+Absolute Tolerance: 0
+Relative Tolerance: 0
+Number of rows in common: 10
+Number of rows in SUT but not in GNS3: 2
+Number of rows in GNS3 but not in SUT: 0
+
+Number of rows with some compared columns unequal: 0
+Number of rows with all compared columns equal: 10
+
+Column Comparison
+-----------------
+
+Number of columns compared with some values unequal: 0
+Number of columns compared with all values equal: 4
+Total number of values which compare unequal: 0
+
+Sample Rows Only in SUT (First 10 Columns)
+------------------------------------------
+
+       node            network next_hop protocol
+10  router1  188.38.122.160/27  router0      bgp
+2   router0  188.38.122.160/27  router2      bgp
+

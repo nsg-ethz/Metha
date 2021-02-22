@@ -1,0 +1,11 @@
+Router0:
+129: default-information originate always
+131: distance 177
+
+Router1:
+145: neighbor 181.236.228.1 default-originate
+149: neighbor 197.108.167.2 default-originate route-map map2
+
+Router2:
+133: distance 122
+165: ip route 128.0.0.0 128.0.0.0 FastEthernet0/1

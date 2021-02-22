@@ -1,0 +1,30 @@
+Router1
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router1(config)#router ospf 100
+Router1(config-router)#no area 0 range 188.160.0.0 255.224.0.0
+Router1(config-router)#exit
+Router1(config)#end
+Router1#
+
+
+Router0
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#router ospf 100
+Router0(config-router)# area 0 range 128.0.0.0 128.0.0.0
+Router0(config-router)#exit
+Router0(config)#end
+Router0#
+
+
+Router2
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router2(config)#router ospf 100
+Router2(config-router)#no area 1 range 214.73.118.128 255.255.255.224
+Router2(config-router)#exit
+Router2(config)#end
+Router2#
+
+

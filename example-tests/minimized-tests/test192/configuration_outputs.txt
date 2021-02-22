@@ -1,0 +1,27 @@
+Router1
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router1(config)#router ospf 100
+Router1(config-router)# default-information originate
+Router1(config-router)#exit
+Router1(config)#end
+Router1#
+
+
+Router2
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router2(config)#end
+Router2#
+
+
+Router0
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#router ospf 100
+Router0(config-router)# default-information originate  always  metric-type 1
+Router0(config-router)#exit
+Router0(config)#end
+Router0#
+
+

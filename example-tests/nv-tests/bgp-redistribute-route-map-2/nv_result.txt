@@ -1,0 +1,18 @@
+Processing /run/media/tobiasb/HDD#1/ETH/ResearchSRI/research-network-testing/example-tests/nv-tests/test82/nv-gen_control.nv
+Interpreted simulation took: 0.000510 secs to complete
+No counterexamples found
+
+Printing solutions for sol~0
+Node 0
+---------
+{ (2407247424u32,32u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2870427648u32,21u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; } }
+
+Node 1
+---------
+{ (3000795087u32,32u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; }
+(2870427648u32,21u6) |-> {  bgp= None; connected= Some(0u8); ospf= None; selected= Some(0u2); static= None; } }
+
+Success: No assertions provided, so none failed
+
+Entire Program took: 0.004249 secs to complete
