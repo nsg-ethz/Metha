@@ -1,5 +1,4 @@
-# Research Network Testing
-
+# Metha: Automated Testing of Network Analyzers
 ## Installation
 
 ### Docker Installation
